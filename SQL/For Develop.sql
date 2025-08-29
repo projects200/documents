@@ -1,6 +1,6 @@
 ALTER TABLE exercise_types
     DROP COLUMN exercise_type_emoji,
-    ADD COLUMN exercise_type_original_image VARCHAR(100) NULL;
+    ADD COLUMN exercise_type_image_url VARCHAR(255) NULL;
 
 ALTER TABLE members
     -- 1. member_picture_id 컬럼 추가 (member_id 컬럼 다음에 위치)
