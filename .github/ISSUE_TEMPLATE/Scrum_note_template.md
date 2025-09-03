@@ -1,7 +1,7 @@
 ---
 name: Scrum note
 about: Use this template for Scrum.
-title: "25-05-05(월) 스크럼"
+title: "25-09-04(목) 스크럼"
 labels: Scrum
 assignees:
   - seung-gyu-kim
