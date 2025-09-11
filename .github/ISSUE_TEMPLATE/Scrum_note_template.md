@@ -4,7 +4,6 @@ about: Use this template for Scrum.
 title: "25-09-04(목) 스크럼"
 labels: Scrum
 assignees:
-  - seung-gyu-kim
   - joohyun1996
   - edv-Shin
   - ldg-96
