@@ -25,3 +25,4 @@ ALTER TABLE preferred_exercises
         CHECK (preferred_exercise_skill_level IN ('BEGINNER', 'ROOKIE', 'INTERMEDIATE', 'ADVANCED', 'SKILLED', 'PRO'));
 
 -- 로컬에서 동작 확인하였습니다.
+-- 0916 1135am 적용 완료
