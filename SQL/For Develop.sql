@@ -1,3 +1,7 @@
+DROP TABLE IF EXISTS matches;
+DROP TABLE IF EXISTS open_chatrooms;
+DROP TABLE IF EXISTS exercise_locations;
+
 CREATE TABLE exercise_locations
 (
     exercise_location_id         BIGINT          NOT NULL AUTO_INCREMENT,
