@@ -24,14 +24,5 @@ CREATE TABLE `open_chatrooms` (
         REFERENCES `members` (`member_id`)
 );
 
-ALTER TABLE `matches`
-    DROP FOREIGN KEY `member_id_1`,
-    DROP FOREIGN KEY `member_id_2`;
-
-ALTER TABLE `matches`
-    ADD CONSTRAINT `FK_members_TO_matches_1` FOREIGN KEY (`requester_id`)
-        REFERENCES `members` (`member_id`),
-    ADD CONSTRAINT `FK_members_TO_matches_2` FOREIGN KEY (`receiver_id`)
-        REFERENCES `members` (`member_id`);
 
 로컬에서 확인 필요
