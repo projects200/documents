@@ -13,3 +13,6 @@ CREATE TABLE IF NOT EXISTS device_notification_settings
 
 ALTER TABLE fcm_tokens
     add constraint uk_fcm_tokens_value UNIQUE (fcm_token_value);
+
+
+-- 토큰값에 유니크가 추가되었으므로, 반드시 병합 및 배포 전 토큰 값 삭제 후 변경
