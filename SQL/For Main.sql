@@ -1,3 +1,5 @@
+drop table fcm_tokens
+
 CREATE TABLE IF NOT EXISTS device_notification_settings
 (
     setting_id        BIGINT AUTO_INCREMENT PRIMARY KEY COMMENT '설정 테이블의 고유 식별자',
