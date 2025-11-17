@@ -1,4 +1,18 @@
 drop table fcm_tokens
+CREATE TABLE IF NOT EXISTS fcm_tokens
+(
+    fcm_token_id           BIGINT AUTO_INCREMENT PRIMARY KEY COMMENT 'AUTO_INCREMENT',
+    member_id              CHAR(36)     NOT NULL COMMENT 'UUID_SELF',
+    fcm_token_value      VARCHAR(255) NOT NULL COMMENT 'FCM 토큰 값 (UNIQUE)',
+    fcm_token_user_agent   VARCHAR(255) NULL COMMENT '디바이스 정보 (User Agent)',
+    fcm_token_is_active  BOOLEAN      NOT NULL DEFAULT TRUE COMMENT '토큰 활성화 여부',
+    fcm_token_activated_at DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '마지막 활성 일시',
+    fcm_token_expired_at DATETIME     NOT NULL DEFAULT (CURRENT_TIMESTAMP + INTERVAL 30 DAY) COMMENT '토큰 만료 일시 (활성화된 경우 현재 시점으로부터 30일 후)',
+    fcm_token_created_at   DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '생성일시',
+
+    CONSTRAINT fk_fcm_tokens_to_members FOREIGN KEY (member_id) REFERENCES members (member_id),
+    CONSTRAINT uk_fcm_tokens_value UNIQUE (fcm_token_value)
+);
 
 CREATE TABLE IF NOT EXISTS device_notification_settings
 (
@@ -12,9 +26,3 @@ CREATE TABLE IF NOT EXISTS device_notification_settings
     CONSTRAINT uq_token_and_type UNIQUE (fcm_token_id, notification_type),
     CONSTRAINT fk_settings_to_fcm_tokens FOREIGN KEY (fcm_token_id) REFERENCES fcm_tokens (fcm_token_id) ON DELETE CASCADE
 );
-
-ALTER TABLE fcm_tokens
-    add constraint uk_fcm_tokens_value UNIQUE (fcm_token_value);
-
-
--- 토큰값에 유니크가 추가되었으므로, 반드시 병합 및 배포 전 토큰 값 삭제 후 변경
