@@ -40,3 +40,6 @@ VALUES ('wrestling', 'https://undabang-public-assets.s3.ap-northeast-2.amazonaws
        ('badminton', 'https://undabang-public-assets.s3.ap-northeast-2.amazonaws.com/images/exercises/badminton.png'),
        ('American_football',
         'https://undabang-public-assets.s3.ap-northeast-2.amazonaws.com/images/exercises/American_football.png');
+
+ALTER TABLE exercise_types
+ADD COLUMN exercise_selection_count BIGINT DEFAULT 0 NOT NULL;
