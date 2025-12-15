@@ -1,9 +1,3 @@
-alter table fcm_tokens add constraint chk_fcm_token_platform CHECK (fcm_token_platform IN ('IOS', 'ANDROID', 'PC', 'ETC'));
-
-alter table fcm_tokens add constraint chk_fcm_token_access_mode CHECK (fcm_token_access_mode IN ('APP', 'PWA', 'BROWSER'));
-
-
-
 INSERT INTO exercise_types (exercise_name, exercise_type_image_url)
 VALUES ('wrestling', 'https://undabang-public-assets.s3.ap-northeast-2.amazonaws.com/images/exercises/wrestling.png'),
        ('water_polo', 'https://undabang-public-assets.s3.ap-northeast-2.amazonaws.com/images/exercises/water_polo.png'),
