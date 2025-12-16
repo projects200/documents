@@ -37,3 +37,6 @@ VALUES ('wrestling', 'https://undabang-public-assets.s3.ap-northeast-2.amazonaws
 
 ALTER TABLE exercise_types
 ADD COLUMN exercise_selection_count BIGINT DEFAULT 0 NOT NULL;
+
+INSERT INTO policies (policy_key, policy_value, policy_unit, policy_description)
+VALUES ('PREFERRED_EXERCISE_MAX_COUNT', '5', 'COUNT', '선호 운동 최대 보유 갯수');
